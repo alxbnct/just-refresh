@@ -46,8 +46,8 @@ function createOrDeleteRefresher(strId) {
       
     if (perSiteSettings != undefined) {
       // check if exact tabUrl in settings first
-      if (tabUrl in perSiteSettings.perSiteSettings) {
-        let siteSettings = perSiteSettings.perSiteSettings[tabUrl]
+      if (tabUrl in perSiteSettings) {
+        let siteSettings = perSiteSettings[tabUrl]
 
         // use those site specific settings
         minutes = siteSettings.minutes
@@ -55,8 +55,8 @@ function createOrDeleteRefresher(strId) {
         console.log(`Using url specific settings for url ${tabUrl}; ${minutes}:${seconds}`) 
       }
       // then check if tabUrl's domain in settings
-      else if (matchDomain(tabUrl) in perSiteSettings.perSiteSettings) {
-        let siteSettings = perSiteSettings.perSiteSettings[matchDomain(tabUrl)]
+      else if (matchDomain(tabUrl) in perSiteSettings) {
+        let siteSettings = perSiteSettings[matchDomain(tabUrl)]
 
         if (siteSettings.matchAnyUrl) {
           // user applied custom settings for this domain, use them
