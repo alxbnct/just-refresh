@@ -56,7 +56,7 @@ submit.addEventListener('click', () => {
   })
 
   chrome.storage.sync.set({ minutes: minuteField.value, seconds: secondField.value, perSiteSettings: perSiteSettings }, () => {
-      alert(`Saved all settings successfully`)
+      alert(`设置保存成功`)
   })
 })
 
